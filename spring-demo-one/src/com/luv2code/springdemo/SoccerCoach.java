@@ -2,6 +2,12 @@ package com.luv2code.springdemo;
 
 public class SoccerCoach implements Coach {
 
+	private FortuneService fortuneService;
+	
+	public SoccerCoach(FortuneService theFortuneService) {
+		fortuneService = theFortuneService;
+	}
+	
 	@Override
 	public String getDailyworkout() {
 		return "Goal!!";
@@ -9,8 +15,7 @@ public class SoccerCoach implements Coach {
 
 	@Override
 	public String getDailyFortune() {
-		// TODO Auto-generated method stub
-		return null;
+		return fortuneService.getFortune();
 	}
 
 }
